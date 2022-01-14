@@ -43,7 +43,7 @@ class StreamCreate extends Component {
         )
     }
 
-    onSubmit(formValues) {
+    onSubmit = (formValues) => {
         this.props.createStream(formValues)
     }
 
