@@ -1,5 +1,13 @@
 import streams from '../apis/streams'
-import { SIGN_IN, SIGN_OUT, CREATE_STREAM } from './types'
+import { 
+    SIGN_IN, 
+    SIGN_OUT, 
+    CREATE_STREAM, 
+    FETCH_STREAMS,
+    FETCH_STREAM,
+    EDIT_STREAM,
+    DELETE_STREAM
+} from './types'
 
 export const signIn = (userId) => {
     return {
@@ -20,3 +28,11 @@ export const createStream = formValues => async dispatch => {
 
     dispatch({ type: CREATE_STREAM, payload: response.data })
 }
+
+export const fetchStreams = () => async dispatch => {
+    const response = await streams.get('/streams')
+
+    dispatch({ type: FETCH_STREAMS, payload: response.data })
+}
+
+
