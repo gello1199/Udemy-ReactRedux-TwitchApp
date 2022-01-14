@@ -1,5 +1,4 @@
 import streams from '../apis/streams'
-import StreamShow from '../components/streams/StreamShow'
 import { 
     SIGN_IN, 
     SIGN_OUT, 
