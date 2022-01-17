@@ -1,10 +1,11 @@
 import React from 'react';
 
-const StreamEdit = () => {
+const StreamEdit = (props) => {
+    console.log(props)
     return (
-        <div>
-           StreamEdit 
-        </div>
+        <form>
+          <input type="text" />
+        </form>
     );
 }
 
