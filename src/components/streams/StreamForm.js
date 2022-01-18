@@ -85,6 +85,3 @@ export default reduxForm({
     form: 'streamForm',
     validate
 })(StreamForm);
-
-export default formWrapped;
-
