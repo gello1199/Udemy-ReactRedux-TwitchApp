@@ -3,6 +3,7 @@ import Modal from '../Modal';
 import { connect } from 'react-redux';
 import history from '../../history';
 import { fetchStream } from '../../actions'
+import { Link } from 'react-router-dom'
 
 class StreamDelete extends React.Component {
 
@@ -14,22 +15,26 @@ class StreamDelete extends React.Component {
          return (
             <React.Fragment>
                 <button className="ui button negative">Delete</button>
-                <button className="ui button">Cancel</button>
+                <Link to='/' className="ui button">Cancel</Link>
             </React.Fragment>
         )
     }
 
+    renderContent() {
+        if(!this.props.stream) {
+            return 'Are you sure you want to delete this stream?'
+        }
+        return `Are you sure you want to delete the stream with title: ${this.props.stream.title}`
+    }
+
     render() {
         return (
-            <div>
-                StreamDelete
-                <Modal 
+            <Modal 
                 title="Delete Stream"
-                content="Are you sure you want to delete this stream?"
+                content={this.renderContent()}
                 actions={this.renderActions()}
                 onDismiss={() => history.push('/')}
-                />   
-            </div>
+            />   
         );
     }
 }
